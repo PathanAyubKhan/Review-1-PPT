@@ -266,3 +266,4 @@ Event and SNAP effects are significant and should be included in modeling.
 Iterative forecasting (using predictions to update lag features) is recommended for better accuracy.
 For full M5 submission, include both validation (d_1914–d_1941) and evaluation (d_1942–d_1969) periods.
 
+https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZjVlZTlhYWYtYjk3Zi00NjczLWExZTctNWYxYzMyNDFkNmY3%40thread.v2/0?context=%7b%22Tid%22%3a%22264b9899-fe1b-430b-9509-2154878d5774%22%2c%22Oid%22%3a%221221bf27-f176-4d9c-92bc-e64cc8ab4a1f%22%7d
