@@ -1,0 +1,109 @@
+Here’s a text summary of all the insights and steps from your latest.py file for the Demand Forecasting project:
+
+📦 Data Loading & Preparation
+
+Downloaded the M5 Forecasting Accuracy dataset from Kaggle.
+Loaded calendar.csv, sell_prices.csv, and sales_train_evaluation.csv.
+Used a memory reduction function to optimize large dataframes.
+Merged datasets store-wise (e.g., CA_1, TX_1) to avoid memory issues.
+Saved merged data as .pkl files for reuse.
+
+
+📊 Exploratory Data Analysis (EDA)
+General Insights:
+
+Dataset contains 11M+ rows across two stores.
+Sales trends show seasonality and growth over time.
+FOODS category and FOODS_3 department dominate in frequency.
+Data distribution is balanced between CA_1 and TX_1.
+
+Event Impacts:
+
+Events like Easter, Labor Day → higher average sales.
+Events like Christmas, Thanksgiving → lower average sales.
+Cultural & Sporting events outperform Religious/National ones.
+
+SNAP Days:
+
+SNAP days positively impact sales in California and Texas.
+
+Price Trends:
+
+Sell prices fluctuate over time for selected items.
+Inverse relationship between price and sales (higher price → lower sales).
+
+Temporal Patterns:
+
+Weekends (Saturday, Sunday) show higher sales.
+July and August have peak monthly averages.
+
+Categorical Analysis:
+
+Sales vary significantly across stores, categories, departments.
+CA_1, FOODS, and FOODS_3 lead in average sales.
+
+Outliers:
+
+Box plots reveal outliers in sales and sell prices across all groups.
+
+
+🛠️ Feature Engineering
+
+Created lag features: sales_lag7, sales_lag14, sales_lag28.
+Created rolling mean features: sales_rollmean7, sales_rollmean28.
+Split data into train/validation using d_num (day index).
+
+
+🤖 Modeling
+Models Used:
+
+
+LightGBM
+
+Fast, efficient gradient boosting.
+RMSE used for evaluation.
+
+
+
+XGBoost
+
+Tree-based model with strong performance.
+RMSE calculated.
+
+
+
+Random Forest
+
+Used for baseline comparison.
+
+
+
+LSTM
+
+Captures long-term dependencies in time series.
+Trained with 50 epochs and dropout regularization.
+
+
+
+GRU
+
+Lightweight alternative to LSTM.
+Same training setup as LSTM.
+
+
+
+
+📈 Evaluation
+
+RMSE used across models for validation.
+No early stopping applied.
+Feature importance not yet explored.
+
+
+🧠 Final Insights & Recommendations
+Strengths:
+
+Modular and scalable pipeline.
+Deep EDA with actionable insights.
+Hybrid modeling approach (ML + DL).
+Efficient memory and data handling.
