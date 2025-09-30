@@ -106,4 +106,163 @@ Strengths:
 Modular and scalable pipeline.
 Deep EDA with actionable insights.
 Hybrid modeling approach (ML + DL).
+
 Efficient memory and data handling.
+
+
+
+📦 Data Loading & Setup
+
+Datasets used: calendar.csv, sell_prices.csv, sales_train_evaluation.csv
+Total rows:
+
+calendar.csv: 1,969 rows
+sell_prices.csv: 6,841,121 rows
+sales_train_evaluation.csv: 30,490 rows, 1,947 columns
+
+
+Unique values:
+
+Items: 3,049
+Stores: 10
+Departments: 7
+Categories: 3
+States: 3
+
+
+
+
+🧹 Preprocessing & Memory Optimization
+
+Store-wise merging to avoid memory overload.
+Memory reduced by up to 87% using reduce_memory_usage() function.
+Final merged dataset per store: 5,918,109 rows, 22 columns
+
+
+📊 Exploratory Data Analysis (EDA)
+🔹 Sales Trends
+
+Clear seasonality and growth over time.
+Weekend sales (Saturday: 1.40, Sunday: 1.45) are higher than weekdays.
+
+🔹 Category & Department Distribution
+
+Most frequent category: FOODS (5.57M rows)
+Most frequent department: FOODS_3 (3.19M rows)
+
+🔹 Event Impact on Sales
+
+Highest average sales:
+
+OrthodoxEaster: 1.47
+Easter: 1.45
+LaborDay: 1.43
+
+
+Lowest average sales:
+
+Christmas: 0.00007
+Thanksgiving: 0.77
+NewYear: 0.88
+
+
+Event types:
+
+Sporting: 1.19
+Cultural: 1.17
+Religious: 1.14
+National: 1.00
+
+
+
+🔹 SNAP Days Impact
+
+California:
+
+Non-SNAP: 1.28
+SNAP: 1.41
+
+
+Texas:
+
+Non-SNAP: 0.92
+SNAP: 1.04
+
+
+
+🔹 Price Trends & Elasticity
+
+Average sell price: $4.41
+Max price: $107.32
+Min price: $0.01
+Scatter plot shows inverse relationship between price and sales.
+
+🔹 Monthly Sales Averages
+
+Highest: August (1.21), July (1.18)
+Lowest: December (1.09)
+
+
+🧠 Feature Engineering
+
+Lag features: sales_lag7, sales_lag14, sales_lag28
+Rolling mean features: sales_rollmean7, sales_rollmean28
+Train/Validation split:
+
+Train: 77,205 rows
+Validation: 22,795 rows
+
+
+
+
+🤖 Modeling & Evaluation
+🔹 LightGBM
+
+RMSE: 2.740
+Best iteration: 0
+
+🔹 XGBoost
+
+RMSE: 2.809
+
+🔹 Random Forest
+
+RMSE: 2.981
+
+🔹 LSTM
+
+RMSE: 2.711
+
+🔹 GRU
+
+RMSE: 2.711
+
+🔹 Bidirectional LSTM
+
+RMSE: 2.797
+
+🔹 Tuned LSTM (Best Hyperparameters: 50 units, 0.2 dropout)
+
+RMSE: 2.734
+
+
+📈 Model Comparison Summary
+
+
+
+ModelRMSELSTM2.711GRU2.711Bidirectional LSTM2.797Tuned LSTM2.734LightGBM2.740XGBoost2.809Random Forest2.981
+
+📤 Forecasting & Submission
+
+Forecasted sales for d_1942 to d_1969 using tuned LSTM.
+Created submission file submission.csv with predictions.
+Future data shape: 914,700 rows, 19 columns
+
+
+✅ Final Insights
+
+LSTM and GRU outperform tree-based models in RMSE.
+Event and SNAP effects are significant and should be included in modeling.
+Iterative forecasting (using predictions to update lag features) is recommended for better accuracy.
+For full M5 submission, include both validation (d_1914–d_1941) and evaluation (d_1942–d_1969) periods.
+
